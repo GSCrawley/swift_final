@@ -41,10 +41,23 @@ struct ContentView: View {
             Sliders(value: $greenSlider, color: .green, textColor: "Green")
             Sliders(value: $blueSlider, color: .blue, textColor: "Blue")
             
+            Button(action: {}) {
+                Text("Submit")
+            }.padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 24))
+                .background(Color(red: redActual, green: greenActual, blue: blueActual))
+                .cornerRadius(.infinity)
+                .foregroundColor(.white)
             
+            Button(action: {}) {
+                Text("Reset")
+            }.padding(EdgeInsets(top: 24, leading: 16, bottom: 24, trailing: 16))
+                .background(Color(red: redSlider, green: greenSlider, blue: blueSlider))
+                .cornerRadius(.infinity)
+                .foregroundColor(.white)
+        }
         }
     }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -58,13 +71,15 @@ struct Sliders: View {
     var textColor: String
     
     var body: some View {
-        VStack{
+        VStack(){
             Text("\(textColor) (\(Int(value * 255) )) ")
-                .font(.largeTitle)
+                
             Slider(value: $value)
                 .accentColor(.red)
                 .padding()
         }
+        .padding(.all, -12.0)
+        
     }
 }
  
