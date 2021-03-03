@@ -78,7 +78,7 @@ struct ContentView: View {
             
             Button(action: {self.reset()}) {
                 Text("Reset")
-            }.padding(EdgeInsets(top: 24, leading: 16, bottom: 24, trailing: 16))
+            }.padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
                 .background(Color(red: redSlider, green: greenSlider, blue: blueSlider))
                 .cornerRadius(.infinity)
                 .foregroundColor(.white)
