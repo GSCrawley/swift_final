@@ -23,6 +23,17 @@ struct ContentView: View {
 
     @State var showAlert = false
     
+    func reset() {
+        redActual = ContentView.randomiser()
+        greenActual = ContentView.randomiser()
+        blueActual = ContentView.randomiser()
+        
+        blueSlider = 0.0
+        greenSlider = 0.0
+        redSlider = 0.0
+        
+    }
+    
     func stars() -> String {
          let difference =  Int(abs((redActual * 255) * (blueActual * 255) * (greenActual * 255) - (redSlider * 255) * (blueSlider * 255) * greenSlider * 255))
         
@@ -65,7 +76,7 @@ struct ContentView: View {
                 .cornerRadius(.infinity)
                 .foregroundColor(.white)
             
-            Button(action: {}) {
+            Button(action: {self.reset()}) {
                 Text("Reset")
             }.padding(EdgeInsets(top: 24, leading: 16, bottom: 24, trailing: 16))
                 .background(Color(red: redSlider, green: greenSlider, blue: blueSlider))
