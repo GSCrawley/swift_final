@@ -34,8 +34,7 @@ struct ContentView: View {
             return "⭐️⭐️"
         } else {
             return "⭐️"
-        }
-    }
+        }      }
 
     
     var body: some View {
@@ -56,8 +55,11 @@ struct ContentView: View {
             Sliders(value: $greenSlider, color: .green, textColor: "Green")
             Sliders(value: $blueSlider, color: .blue, textColor: "Blue")
             
-            Button(action: {}) {
+            Button(action: {self.showAlert = true}) {
                 Text("Submit")
+                
+            }.alert(isPresented: $showAlert) {
+                Alert(title: Text("Your performance"), message: Text(stars()))
             }.padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 24))
                 .background(Color(red: redActual, green: greenActual, blue: blueActual))
                 .cornerRadius(.infinity)
@@ -86,15 +88,12 @@ struct Sliders: View {
     var textColor: String
     
     var body: some View {
-        VStack(){
-            Text("\(textColor) (\(Int(value * 255) )) ")
-                
+        VStack{
+            Text("\(textColor) (\(Int(value * 255) )) ").font(.title)
             Slider(value: $value)
-                .accentColor(.red)
-                .padding()
+                .accentColor(color)
+                .padding(-11.0)
         }
-        .padding(.all, -12.0)
-        
     }
 }
  
