@@ -38,7 +38,7 @@ struct ContentView: View {
          let difference =  Int(abs((redActual * 255) * (blueActual * 255) * (greenActual * 255) - (redSlider * 255) * (blueSlider * 255) * greenSlider * 255))
         
         if (difference < 4194304) {
-            return "⭐️⭐️⭐️⭐️"
+            return "⭐️⭐️⭐️⭐️⭐️"
         } else if (difference < 8388608) {
             return "⭐️⭐️⭐️"
         } else if (difference < 12582912) {
