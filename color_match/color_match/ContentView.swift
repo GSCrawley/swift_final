@@ -21,6 +21,21 @@ struct ContentView: View {
     @State var greenSlider: Double
     @State var blueSlider: Double
 
+    @State var showAlert = false
+    
+    func stars() -> String {
+         let difference =  Int(abs((redActual * 255) * (blueActual * 255) * (greenActual * 255) - (redSlider * 255) * (blueSlider * 255) * greenSlider * 255))
+        
+        if (difference < 4194304) {
+            return "⭐️⭐️⭐️⭐️"
+        } else if (difference < 8388608) {
+            return "⭐️⭐️⭐️"
+        } else if (difference < 12582912) {
+            return "⭐️⭐️"
+        } else {
+            return "⭐️"
+        }
+    }
 
     
     var body: some View {
